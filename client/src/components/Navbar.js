@@ -17,7 +17,7 @@ export default function Navbar () {
                 <div className="ham bot"></div>
             </div>
             <div className="web-nav-modal-box">
-                <a href="/" className="modal-link offScrn">Home</a>
+                <a href="/areas" className="modal-link offScrn">Areas</a>
                 <a href="/login" className="modal-link offScrn">Login</a>
                 <a href="/register" className="modal-link offScrn">Register</a>
             </div>

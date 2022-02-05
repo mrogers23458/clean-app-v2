@@ -2,12 +2,33 @@
   --main-bg-color: #75C7ef;
   --main-text-color: #ffffff;
   --alt-bg-color: #ffd25e;
+  --alt-bg-color2: green;
+}
+
+.white {
+  background: var(--main-text-color);
+  color: var(--alt-bg-color);
+}
+
+.yellow {
+  background: var(--alt-bg-color);
+  color: var(--main-text-color);
+}
+
+.green {
+  background: var(--alt-bg-color2);
+  color: var(--main-text-color);
+}
+
+.blue {
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
 .App {
   background: var(--main-bg-color);
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Navbar CSS */
@@ -91,6 +112,7 @@
   display: flex;
   align-items: center;
   height: 90vh;
+  overflow: hidden;
 }
 
 .home-header-box {
@@ -206,6 +228,76 @@
 .register-btn{
   width: 20.5vw;
 }
+
+/* Areas Page CSS */
+.areas-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.area-cards-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-box {
+  background: var(--main-text-color);
+  width: 40vw;
+  height: 30vh;
+  border-radius: 0.25vw;
+  margin: 1em;
+}
+
+
+.areas-header-text {
+  font-size: 2.5vw;
+  color: var(--main-text-color);
+}
+
+.username-text {
+  color: var(--alt-bg-color);
+}
+
+/* area page CARD css */
+
+.card-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title-box {
+  display: flex;
+  justify-content: center;
+  width: 30vw;
+  margin-top: 5vh;
+  border-radius: 0.25vw;
+}
+
+.card-box-title-text {
+  font-size: 1.5vw;
+  border-radius: 0.25vw;
+}
+
+.card-desc-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30vw;
+  justify-content: left;
+  align-items: left;
+}
+
+.card-desc-text {
+  text-align: left;
+  font-size: 1.25vw;
+}
+
+
 /* media queries */
 @media (max-width: 640px), (max-aspect-ratio: 5/4) {
 

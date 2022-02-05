@@ -3,6 +3,7 @@ import Loginpage from './pages/Loginpage';
 import Navbar from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
+import Areas from './pages/Areas';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Loginpage />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/areas" element={<Areas />} />
 
       </Routes>
     </div>
