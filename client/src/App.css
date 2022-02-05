@@ -420,4 +420,25 @@
     font-size: 8vw;
   }
 
+/* mobile areas page css */
+
+.areas-header-text {
+  font-size: 6vw;
+}
+
+/* mobile areas card css */
+.card-box {
+  height: 25vh;
+}
+.card-box-title-text {
+  font-size: 3.5vw;
+  border-radius: 0.25vw;
+}
+
+.card-desc-text {
+  text-align: left;
+  font-size: 3vw;
+}
+
+
 }
