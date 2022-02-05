@@ -145,19 +145,19 @@
   height: 3vh;
   border-radius: 0.25vw;
 }
-.password-label {
+.label {
   font-size: 1.5vw;
   font-weight: 50;
   color: var(--main-text-color);
 }
 
-.password-input {
+.input {
   width: 20vw;
   height: 3vh;
   border-radius: 0.25vw;
 }
 
-.login-btn {
+.btn {
   background: var(--alt-bg-color);
   color: var(--main-text-color);
   height: 5vh;
@@ -180,6 +180,32 @@
   margin-top: -60vh;
 }
 
+/*  Register Page CSS  */
+.register-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-header-box {
+  margin-right: 20vw;
+  margin-top: -3vh;
+}
+
+.register-header-text {
+  font-size: 4vw;
+  color: var(--main-text-color);
+}
+
+.register-form-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: -2vh;
+  
+}
+
+.register-btn{
+  width: 20.5vw;
+}
 /* media queries */
 @media (max-width: 640px), (max-aspect-ratio: 5/4) {
 
@@ -265,22 +291,23 @@
     font-weight: 50;
   }
 
-  .username-input {
+  .input {
     width: 60vw;
   }
 
-  .password-label {
+  .label {
     font-size: 4.5vw;
     color: var(--main-text-color);
     font-weight: 50;
   }
 
-  .password-input {
+  .input {
     width: 60vw;
   }
 
-  .login-btn {
+  .btn {
     font-size: 4vw;
+    width: 62vw;
   }
 
 
@@ -289,6 +316,16 @@
   }
   .grass-footer-img {
     height: 50vh;
+  }
+
+/* mobile register css */
+  .register-header-box {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+  .register-header-text {
+    font-size: 8vw;
   }
 
 }
