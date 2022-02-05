@@ -1,19 +1,294 @@
 :root {
   --main-bg-color: #75C7ef;
   --main-text-color: #ffffff;
+  --alt-bg-color: #ffd25e;
 }
 
 .App {
   background: var(--main-bg-color);
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
+/* Navbar CSS */
 .web-nav {
   display: flex;
-  width: 100vw;
-  background: var(--main-text-color);
-  border: 2px solid black;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.web-nav-ham-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 5vh;
+  margin-right: 3vw;
+  position: relative;
+}
+
+.ham {
+  width: 1vw;
+  border-bottom: 2px solid white;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+
+.top {
+  width: 2vw;
+}
+
+.bot {
+  margin-left: 1vw;
+}
+
+/* modal css here */
+.web-nav-modal-box {
+  display: flex;
   height: 5vh;
+  margin-top: 6vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-right: 200vw;
+}
+
+.modal-link {
+  height: 3vh;
+  width: 6vw;
+  font-size: 1vw;
+  border-radius: 0.25vw;
+  background: var(--main-text-color);
+  color: var(--main-bg-color);
+  text-decoration: none;
+  text-align: center;
+  padding: 0.25vw;
+  margin-right: 10vw;
+  
+}
+
+.close {
+  transform: rotate(90deg);
+  transition: 1s;
+  border-bottom: 2px solid white;
+}
+
+.closeBot{
+  transform: translateY(-2vh) translateX(-1.5vw) rotate(-90deg);
+  transition: 1s;
+}
+
+.display {
+  margin-right: 0vw;
+  transition: 1s;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Home page CSS */
+.home-box {
+  display: flex;
+  align-items: center;
+  height: 90vh;
+}
+
+.home-header-box {
+  margin-left: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 20vw;
+  margin-top: -15vh;
+}
+
+.home-header-text1 {
+  font-size: 4vw;
+  color: var(--main-text-color);
+  font-weight: 100;
+  position: absolute;
+  margin-top: -1em;
+}
+
+.home-header-text2 {
+  font-size: 10vw;
+  color: var(--main-text-color);
+  position: absolute;
+}
+
+.home-header-img{
+  height: 5vw;
+  width: 5vw;
+  margin-top: -10vh;
+}
+
+.login-form-box {
+  margin-left: 33vw;
+  margin-top: -15vh;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-label {
+  font-size: 1.5vw;
+  color: var(--main-text-color);
+  font-weight: 50;
+}
+
+.username-input {
+  width: 20vw;
+  height: 3vh;
+  border-radius: 0.25vw;
+}
+.password-label {
+  font-size: 1.5vw;
+  font-weight: 50;
+  color: var(--main-text-color);
+}
+
+.password-input {
+  width: 20vw;
+  height: 3vh;
+  border-radius: 0.25vw;
+}
+
+.login-btn {
+  background: var(--alt-bg-color);
+  color: var(--main-text-color);
+  height: 5vh;
+  margin-top: 2vh;
+  font-size: 1.5vw;
+  font-weight: bold;
+  border-radius: 0.25vw;
+}
+
+.grass-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 5vh;
+}
+
+.grass-footer-img {
+  height: 90vh;
+  width: 130vw;
+  margin-top: -60vh;
+}
+
+/* media queries */
+@media (max-width: 640px), (max-aspect-ratio: 5/4) {
+
+  /* mobile nav bar CSS */
+
+  .web-nav-ham-box {
+    display: block;
+    margin-top: 6vh;
+    margin-right: 3vw;
+  }
+
+  .web-nav-modal-box {
+    display: flex;
+    height: 4vh;
+    margin-top: 5.5vh;
+    margin-right: 200vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    align-items: center;
+  }
+
+  .ham {
+    margin-bottom: 0;
+  }
+
+  .top {
+    width: 5vw;
+    margin-right: 2vw;
+  }
+
+  .bot {
+    width: 3vw;
+    margin-left: 2vw;
+  }
+
+  .modal-link {
+    height: 3vh;
+    width: 15vw;
+    font-size: 3vw;
+  }
+
+  .display {
+    margin-right: 0vw;
+  }
+
+  .closeBot {
+    transform: translateY(-1vh) translateX(-2.5vw) rotate(-90deg);
+    transition: 1s;
+  }
+
+  /* Mobile-Home Page CSS*/
+
+  .home-box {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+  }
+
+  .home-header-box {
+    margin-top: 10vh;
+    margin-right: 40vw;
+  }
+
+  .home-header-text1 {
+    font-size: 8vw;
+    margin-left: 1em;
+  }
+
+  .home-header-text2 {
+    font-size: 15vw;
+  }
+
+  .login-form-box {
+    margin-top: 10vh;
+    margin-right: 40vw;
+    width: 60vw;
+  }
+
+  .username-label {
+    font-size: 4.5vw;
+    color: var(--main-text-color);
+    font-weight: 50;
+  }
+
+  .username-input {
+    width: 60vw;
+  }
+
+  .password-label {
+    font-size: 4.5vw;
+    color: var(--main-text-color);
+    font-weight: 50;
+  }
+
+  .password-input {
+    width: 60vw;
+  }
+
+  .login-btn {
+    font-size: 4vw;
+  }
+
+
+  .grass-footer {
+    height: 2vh;
+  }
+  .grass-footer-img {
+    height: 50vh;
+  }
+
 }

@@ -1,4 +1,3 @@
-import '../assets/css/Homepage.css'
 import Grassfooter from '../components/Grassfooter'
 
 export default function Homepage() {
