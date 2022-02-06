@@ -44,6 +44,11 @@ type Mutation {
         username: String
         password: String
     ): Auth
+
+    login(
+        username: String!
+        password: String!
+    ): Auth
 }
 `;
 
