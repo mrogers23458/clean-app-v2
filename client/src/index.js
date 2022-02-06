@@ -5,10 +5,30 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+  createHttpLink
+} from "@apollo/client";
+
+const httpLink = createHttpLink({
+  uri: '/graphql'
+})
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache()
+})
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
