@@ -1,22 +1,59 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../utils/mutation'
+import Auth from '../utils/auth'
 import Grassfooter from '../components/Grassfooter'
+import { useNavigate } from 'react-router'
 
 export default function Loginpage() {
+    let navigate = useNavigate()
 
+    // state function for setting state current to user input
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
     })
 
+    const [errMessage, setErrMessage] = useState('')
+
+    //login ApolloClient mutation
+    const [login, {data, loading, error}] = useMutation(LOGIN)
+
     const handleInputUpdate = function (e) {
         console.log(e.target.name)
-        setCredentials(
+       return setCredentials(
             {
                 ...credentials, [e.target.name]: e.target.value
             }
         )
+    }
 
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        console.log('login form used')
         console.log(credentials)
+
+        if (credentials.username && credentials.password ){
+            const { username, password } = credentials
+            console.log(credentials)
+            const {data, error, loading } = await login(
+                {
+                    variables: {
+                        username,
+                        password
+                    }
+                }
+            ).catch((err) => {
+                console.log(err)
+                setErrMessage('Incorrect Username or Password')
+            })
+
+            if(data) {
+                console.log('data check hit')
+                await Auth.login(data)
+                return navigate('/areas')
+            }
+        }
     }
 
     const togglePasswordVisibility = function () {
@@ -43,10 +80,13 @@ export default function Loginpage() {
                     <input type="text" className="login-username-inp input" onChange={handleInputUpdate} placeholder="Username" name="username"></input>
                     <label type="text" className="login-password label">Password</label>
                     <div className='pass-box'>
-                    <input type="password" className="login-password-inp input" onChange={handleInputUpdate} placeholder="password" name="password"></input>
-                    <i className="bi bi-eye-slash" id="togglePassword" onClick={togglePasswordVisibility}></i>
+                        <input type="password" className="login-password-inp input" onChange={handleInputUpdate} placeholder="password" name="password"></input>
+                        <div className='eye-error-box'>
+                            <i className="bi bi-eye-slash" id="togglePassword" onClick={togglePasswordVisibility}></i>
+                            <h3 className='label'>{errMessage}</h3>
+                        </div>
                     </div>
-                    <button className="login-btn btn" type="submit">Login</button>
+                    <button onClick={handleLogin} className="login-btn btn" type="submit">Login</button>
                 </form>
             </div>
             <Grassfooter />

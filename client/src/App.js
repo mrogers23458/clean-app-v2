@@ -7,6 +7,7 @@ import Areas from './pages/Areas';
 import AddArea from './pages/AddArea';
 import AddTask from './AddTask';
 
+
 function App() {
   return (
     <div className="App">

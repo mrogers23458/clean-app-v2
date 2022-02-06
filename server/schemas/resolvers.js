@@ -37,22 +37,27 @@ const resolvers = {
         },
 
         login: async (parent, {username, password}) => {
-            const login = await User.findOne({ username });
+            const user = await User.findOne({ username });
+            console.log(user)
+            console.log(password)
+            console.log('check pass below')
 
-            if (!login) {
+            if (!user) {
                 throw new AuthenticationError('No account with this username found')
                 
             }
 
-            const validPass = await loggedIn.checkPass(password)
+            const validPass = await user.isCorrectPassword(password)
 
             if (!validPass) {
+                console.log(user)
+                console.log(password)
                 throw new AuthenticationError('Incorrect password, please try again')
             }
 
-            const token = signToken(login)
+            const token = signToken(user)
 
-            return { token, login}
+            return { token, user }
         },
     }
 };
