@@ -2,6 +2,10 @@ import Card from '../components/Card'
 
 export default function Areas (){
 
+    const redirectAddArea = function () {
+        window.location.href = '/addarea'
+    }
+
     const seedUser = {
         username: 'Niftee'
     }
@@ -45,6 +49,9 @@ export default function Areas (){
                         )
                         
                     })}
+            </div>
+            <div className='add-an-area-box'>
+                <button onClick={redirectAddArea} className='add-an-area-btn btn'>Add an area.</button>
             </div>
         </div>
     )

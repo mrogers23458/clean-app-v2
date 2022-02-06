@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
 import Areas from './pages/Areas';
+import AddArea from './pages/AddArea';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/areas" element={<Areas />} />
+        <Route path="/addarea" element={<AddArea />} />
 
       </Routes>
     </div>

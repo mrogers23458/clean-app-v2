@@ -1,6 +1,11 @@
 import Grassfooter from '../components/Grassfooter'
 
 export default function Loginpage() {
+
+    const logFun = function (e) {
+        e.preventDefault()
+        console.log('working')
+    }
     return (
         <div className="home-box">
             <div className="home-header-box">
@@ -13,7 +18,7 @@ export default function Loginpage() {
                     <input type="text" className="login-username input" placeholder="Username"></input>
                     <label type="text" className="login-password label">Password</label>
                     <input type="text" className="login-password input" placeholder="password"></input>
-                    <button className="login-btn btn" type="submit">Login</button>
+                    <button onClick={logFun} className="login-btn btn" type="submit">Login</button>
                 </form>
             </div>
             <Grassfooter />

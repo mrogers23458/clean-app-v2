@@ -109,10 +109,12 @@
 
 /* Home page CSS */
 .home-box {
+  position: relative;
   display: flex;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
   overflow: hidden;
+  z-index: 0;
 }
 
 .home-header-box {
@@ -171,12 +173,14 @@
   font-size: 1.5vw;
   font-weight: 50;
   color: var(--main-text-color);
+  z-index: 1;
 }
 
 .input {
   width: 20vw;
   height: 3vh;
   border-radius: 0.25vw;
+  z-index: 1;
 }
 
 .btn {
@@ -187,7 +191,9 @@
   font-size: 1.5vw;
   font-weight: bold;
   border-radius: 0.25vw;
+  z-index: 1;
 }
+
 
 .grass-footer {
   position: fixed;
@@ -235,6 +241,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: -2vh;
   overflow-y: scroll;
 }
 
@@ -253,11 +260,16 @@
   margin: 1em;
 }
 
+.add-an-area-btn {
+  margin-bottom: 1vh;
+}
+
 
 .areas-header-text {
   font-size: 2.5vw;
   color: var(--main-text-color);
 }
+
 
 .username-text {
   color: var(--alt-bg-color);
@@ -295,6 +307,22 @@
 .card-desc-text {
   text-align: left;
   font-size: 1.25vw;
+}
+
+/* add an area page CSS */
+
+.area-add-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  z-index: 0;
+}
+
+.add-area-form-box {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -419,6 +447,7 @@
   .register-header-text {
     font-size: 8vw;
   }
+
 
 /* mobile areas page css */
 
