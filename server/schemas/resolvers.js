@@ -34,7 +34,26 @@ const resolvers = {
             const token = signToken(user)
 
             return { token, user }
-        }
+        },
+
+        login: async (parent, {username, password}) => {
+            const login = await User.findOne({ username });
+
+            if (!login) {
+                throw new AuthenticationError('No account with this username found')
+                
+            }
+
+            const validPass = await loggedIn.checkPass(password)
+
+            if (!validPass) {
+                throw new AuthenticationError('Incorrect password, please try again')
+            }
+
+            const token = signToken(login)
+
+            return { token, login}
+        },
     }
 };
 
