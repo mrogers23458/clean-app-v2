@@ -320,11 +320,36 @@
   z-index: 0;
 }
 
+.area-add-header {
+  color: var(--main-text-color);
+}
+
 .add-area-form-box {
   display: flex;
   flex-direction: column;
 }
 
+/* add a task to area page CSS */
+.task-add-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.add-task-form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-task-btn {
+  width: 20.5vw;
+}
+
+.task-add-header {
+  color: var(--main-text-color);
+  font-size: 3vw;
+}
 
 /* media queries */
 @media (max-width: 640px), (max-aspect-ratio: 5/4) {
@@ -467,6 +492,11 @@
 .card-desc-text {
   text-align: left;
   font-size: 3vw;
+}
+
+/* mobile add task page css */
+.task-add-header {
+  font-size: 4vw;
 }
 
 
