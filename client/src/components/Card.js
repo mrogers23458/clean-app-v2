@@ -1,5 +1,5 @@
 export default function Card (data) {
-    console.log(data)
+
     const area = data.props
 
     return(

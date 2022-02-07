@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { LOGIN } from '../utils/mutation'
-import Auth from '../utils/auth'
+import auth from '../utils/auth'
 import Grassfooter from '../components/Grassfooter'
 import { useNavigate } from 'react-router'
 
@@ -17,7 +17,7 @@ export default function Loginpage() {
     const [errMessage, setErrMessage] = useState('')
 
     //login ApolloClient mutation
-    const [login, {data, loading, error}] = useMutation(LOGIN)
+    const [loginUser, {data, loading, error}] = useMutation(LOGIN)
 
     const handleInputUpdate = function (e) {
         console.log(e.target.name)
@@ -39,7 +39,7 @@ export default function Loginpage() {
         if (credentials.username && credentials.password ){
             const { username, password } = credentials
             console.log(credentials)
-            const {data, error, loading } = await login(
+            const {data, error, loading } = await loginUser(
                 {
                     variables: {
                         username,
@@ -52,8 +52,9 @@ export default function Loginpage() {
             })
 
             if(data) {
+                console.log(data)
                 console.log('data check hit')
-                await Auth.login(data)
+                await auth.login(data.login.token)
                 return navigate('/areas')
             }
         }

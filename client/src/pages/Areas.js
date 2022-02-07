@@ -1,4 +1,4 @@
-import { ApolloClient, useQuery } from '@apollo/client'
+import { ApolloClient, ApolloConsumer, ApolloProvider, useApolloClient, useQuery } from '@apollo/client'
 import auth from '../utils/auth'
 import Card from '../components/Card'
 import { GET_USER } from '../utils/query'
@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router'
 export default function Areas (){
 
     let navigate = useNavigate()
-    console.log(auth.getUser())
+    let client = useApolloClient()
+    
 
     const loggedInUser = auth.getUser().data
-    console.log(loggedInUser)
+    
     const id = loggedInUser._id
-    console.log(id)
+    
 
     const redirectAddArea = function () {
        navigate(`/addarea${id}`)
@@ -41,9 +42,11 @@ export default function Areas (){
             </div>
         )
     }
+    
+    client.reFetchObservableQueries(GET_USER)
 
     if (data?.user) {
-        console.log(data)
+        
         const { user } = data
 
         const areaData = user.areas

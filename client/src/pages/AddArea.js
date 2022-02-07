@@ -2,12 +2,14 @@ import { useState } from "react"
 import { ADD_AREA } from "../utils/mutation"
 import Grassfooter from "../components/Grassfooter"
 import { useMutation } from "@apollo/client"
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 
 export default function AddArea (){
 
+    let navigate = useNavigate()
+
     const params = useParams()
-    console.log(params)
+    (params)
     const id = params.id.trim()
 
     const[formData, setFormData] = useState(
@@ -22,8 +24,8 @@ export default function AddArea (){
     const [addArea, {data, loading, error}] = useMutation(ADD_AREA)
 
     const handleUpdate = function (e) {
-        console.log(e.target.name)
-        console.log(formData)
+        (e.target.name)
+        (formData)
 
         handleColorSelect(e);
 
@@ -54,18 +56,18 @@ export default function AddArea (){
 
     const handleAddArea = async (e) => {
         e.preventDefault()
-        console.log(formData)
+        (formData)
 
         setFormData({
             ...formData, [e.target.name]: e.target.value
         })
 
-        console.log(formData)
+        (formData)
 
         if (formData.name && formData.tabColor && formData.description) {
            const {name, description, tabColor, id} = formData
-           console.log(formData)
-           console.log('id is here'+id)
+           (formData)
+           ('id is here'+id)
            
             const {data, error, loading } = await addArea({
                 variables: {
@@ -75,11 +77,11 @@ export default function AddArea (){
                     tabColor,
                 }
             }).catch((err) => {
-                console.log(err)
+                console.error((err))
             })
 
             if (data) {
-                console.log(data)
+                navigate('/areas')
             }
         }
     }
@@ -96,7 +98,8 @@ export default function AddArea (){
                 <label className="add-area-name-lab label">Description</label>
                 <input className="add-area-name-inp input" type="text" name="description" onChange={handleUpdate}></input>
                 <label className="add-area-tab-color-lab label">Choose a tab color</label>
-                <select id="selectMe" defaultValue="white" onChange={handleUpdate} name="tabColor" className="add-area-tab-color-sel white input">
+                <select id="selectMe" defaultValue="select" onChange={handleUpdate} name="tabColor" className="add-area-tab-color-sel white input">
+                    <option className="input" value="select">please select a tab color</option>
                     <option className="white input" value="white">White</option>
                     <option className="yellow input" value="yellow">Yellow</option>
                     <option className="blue input" value="blue">Blue</option>

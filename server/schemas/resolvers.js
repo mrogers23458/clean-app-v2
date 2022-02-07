@@ -10,7 +10,6 @@ const resolvers = {
 
         user: async (parent, { id }) => {
             const user = User.findOne( {_id: id} ).populate('areas')
-            console.log(user.obj)
             return(user)
         },
 
@@ -40,7 +39,6 @@ const resolvers = {
 
         login: async (parent, {username, password}) => {
             const loggedIn = await User.findOne({ username });
-            console.log('check pass below')
 
             if (!loggedIn) {
                 throw new AuthenticationError('No account with this username found')
@@ -60,18 +58,13 @@ const resolvers = {
         },
 
         addArea: async (parent, {id, description, name, tabColor}) => {
-            console.log(parent)
-            console.log(id + 'id here')
-            const area = await Area.create({name, tabColor, description})
 
-            console.log(area)
-           const user = await User.findOneAndUpdate(
+            const area = await Area.create({name, tabColor, description})
+            const user = await User.findOneAndUpdate(
                 { _id: id},
                 { $addToSet: {areas: area._id}}
             )
-
-            console.log(user)
-
+            
             return ( area )
         }
     }
