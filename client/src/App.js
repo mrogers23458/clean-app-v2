@@ -17,7 +17,7 @@ function App() {
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/areas" element={<Areas />} />
-        <Route path="/addarea" element={<AddArea />} />
+        <Route path="/addarea:id" element={<AddArea />} />
         <Route path="/addtask" element={<AddTask />} />
       </Routes>
     </div>

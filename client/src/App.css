@@ -268,9 +268,11 @@
 
 .area-cards-box{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   flex-wrap: wrap;
+  margin-left: 7vw;
+  margin-right: 7vw;
 }
 
 .card-box {
@@ -278,11 +280,17 @@
   width: 40vw;
   height: 30vh;
   border-radius: 0.25vw;
-  margin: 1em;
+  margin: 1.15em;
 }
 
 .add-an-area-btn {
   margin-bottom: 1vh;
+}
+
+.areas-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -506,14 +514,45 @@
   font-size: 3vw;
 }
 
+.areas-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
 .areas-header-text {
   font-size: 6vw;
+  text-align: center;
 }
 
 /* mobile areas card css */
-.card-box {
-  height: 25vh;
+.area-cards-box{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
 }
+
+.card-title-box {
+  display: flex;
+  justify-content: center;
+  width: 25vw;
+  margin-top: 2vh;
+  border-radius: 0.25vw;
+}
+
+.card-desc-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 25vw;
+  justify-content: left;
+
+}
+
+.card-box {
+  height: 20vh;
+  width: 33vw;
+}
+
 .card-box-title-text {
   font-size: 3.5vw;
   border-radius: 0.25vw;

@@ -26,3 +26,14 @@ export const REGISTER = gql `
     }
   }
 `
+
+export const ADD_AREA = gql `
+mutation addArea ($id: ID, $name: String, $description: String, $tabColor: String) {
+  addArea(id: $id, name: $name, description: $description, tabColor: $tabColor) {
+    name,
+    description,
+    tabColor,
+    _id
+  }
+}
+`

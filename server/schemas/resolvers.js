@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const {User, Area, Task} = require('../models')
-const {signToken } = require('../utils/auth')
+const { signToken } = require('../utils/auth')
 
 const resolvers = {
     Query: {
@@ -9,7 +9,9 @@ const resolvers = {
         },
 
         user: async (parent, { id }) => {
-            return User.findOne( id ).populate('areas')
+            const user = User.findOne( {_id: id} ).populate('areas')
+            console.log(user.obj)
+            return(user)
         },
 
         me: async(parent, args, context) => {
@@ -56,6 +58,22 @@ const resolvers = {
 
             return { token, loggedIn }
         },
+
+        addArea: async (parent, {id, description, name, tabColor}) => {
+            console.log(parent)
+            console.log(id + 'id here')
+            const area = await Area.create({name, tabColor, description})
+
+            console.log(area)
+           const user = await User.findOneAndUpdate(
+                { _id: id},
+                { $addToSet: {areas: area._id}}
+            )
+
+            console.log(user)
+
+            return ( area )
+        }
     }
 };
 

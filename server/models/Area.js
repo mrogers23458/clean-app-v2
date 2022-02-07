@@ -4,6 +4,7 @@ const areaSchema = new Schema (
     {
         name: String,
         description: String,
+        tabColor: String,
         owner: String
     }
 )

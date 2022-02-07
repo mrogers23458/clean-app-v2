@@ -13,8 +13,7 @@ type Area {
     _id: ID
     name: String
     description: String
-    owner: String
-    tasks: [Task]
+    tabColor: String
 }
 
 type Task {
@@ -49,6 +48,13 @@ type Mutation {
         username: String!
         password: String!
     ): Auth
+
+    addArea(
+        id: ID
+        name: String
+        description: String
+        tabColor: String
+    ): Area
 }
 `;
 
