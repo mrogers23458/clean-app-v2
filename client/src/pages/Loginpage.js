@@ -32,6 +32,9 @@ export default function Loginpage() {
         e.preventDefault()
         console.log('login form used')
         console.log(credentials)
+        if (credentials.username || credentials.password === ''){
+            setErrMessage('Please enter username and password')
+        }
 
         if (credentials.username && credentials.password ){
             const { username, password } = credentials
@@ -83,10 +86,10 @@ export default function Loginpage() {
                         <input type="password" className="login-password-inp input" onChange={handleInputUpdate} placeholder="password" name="password"></input>
                         <div className='eye-error-box'>
                             <i className="bi bi-eye-slash" id="togglePassword" onClick={togglePasswordVisibility}></i>
-                            <h3 className='label'>{errMessage}</h3>
                         </div>
                     </div>
                     <button onClick={handleLogin} className="login-btn btn" type="submit">Login</button>
+                    <h3 className="error-text">{errMessage}</h3>
                 </form>
             </div>
             <Grassfooter />

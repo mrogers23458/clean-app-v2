@@ -30,34 +30,31 @@ const resolvers = {
 
     Mutation: {
         register: async (parent, { email, username, password }) => {
-            const user = await User.create({ email, username, password});
-            const token = signToken(user)
+            const newUser = await User.create({ email, username, password});
+            const token = signToken(newUser)
 
-            return { token, user }
+            return { token, newUser }
         },
 
         login: async (parent, {username, password}) => {
-            const user = await User.findOne({ username });
-            console.log(user)
-            console.log(password)
+            const loggedIn = await User.findOne({ username });
             console.log('check pass below')
 
-            if (!user) {
+            if (!loggedIn) {
                 throw new AuthenticationError('No account with this username found')
                 
             }
 
-            const validPass = await user.isCorrectPassword(password)
+            const validPass = await loggedIn.isCorrectPassword(password)
 
             if (!validPass) {
-                console.log(user)
-                console.log(password)
+
                 throw new AuthenticationError('Incorrect password, please try again')
             }
 
-            const token = signToken(user)
+            const token = signToken(loggedIn)
 
-            return { token, user }
+            return { token, loggedIn }
         },
     }
 };
