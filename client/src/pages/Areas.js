@@ -44,12 +44,13 @@ export default function Areas (){
     }
     
     client.reFetchObservableQueries(GET_USER)
-
-    if (data?.user) {
+    
+    if (data) {
         
         const { user } = data
 
         const areaData = user.areas
+        
         return (
             <div className="areas-box">
                 <div className="areas-header">

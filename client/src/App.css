@@ -423,12 +423,12 @@
 
   .modal-link {
     height: 3vh;
-    width: 15vw;
+    width: 11vw;
     font-size: 3vw;
   }
 
   .display {
-    margin-right: 0vw;
+    margin-right: -3vw;
   }
 
   .closeBot {
