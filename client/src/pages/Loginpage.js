@@ -90,7 +90,8 @@ export default function Loginpage() {
                         </div>
                     </div>
                     <button onClick={handleLogin} className="login-btn btn" type="submit">Login</button>
-                    <h3 className="error-text">{errMessage}</h3>
+                    <h3 className="error-text">Need an account? <a className="register-link input" href="/register">Register</a></h3>
+                    <h4 className="error-text">{errMessage}</h4>
                 </form>
             </div>
             <Grassfooter />
